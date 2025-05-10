@@ -4,10 +4,6 @@ const path = require('path');
 const fs = require('fs');
 
 const dbDir = path.join(__dirname, '..', '..', 'database');
-if (!fs.existsSync(dbDir)) {
-    fs.mkdirSync(dbDir, { recursive: true });
-}
-
 const dbPath = path.join(dbDir, 'pocket_monster.db');
 let db;
 
