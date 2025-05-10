@@ -1,4 +1,4 @@
-import { login, register, saveToken } from './dao/auth';
+import { login, register, saveToken } from '../dao/auth';
 
 let action: 'signin' | 'signup' = 'signin';
 

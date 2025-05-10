@@ -12,6 +12,7 @@ export const API_ROUTES = {
         DELETE_REQUEST: BASE_URL + '/api/friendships/:id',
         GET_FRIENDS: BASE_URL + '/api/friendships',
         GET_SENT_REQUESTS: BASE_URL + '/api/friendships/sent',
+        GET_RECEIVED_REQUESTS: BASE_URL + '/api/friendships/received',
         SEARCH: BASE_URL + '/api/friendships/search'
     }
 };
