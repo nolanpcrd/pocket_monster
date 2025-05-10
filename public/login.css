@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+body {
+    font-family: "Lilita One", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background: #9089F4;
+    overflow: hidden;
+}
+
+* {
+    user-select: none;
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
+    padding: 40px;
+    width: 30%;
+    max-width: 550px;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.toggle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    position: relative;
+    background: #9089F4;
+    border-radius: 35px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#signIn, #signUp {
+    background: none;
+    border: none;
+    font-family: "Lilita One", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    flex: 1;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #B9DD6A;
+    border-radius: 30px;
+    transition: left 0.3s ease;
+    z-index: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+#signIn {
+    color: black;
+}
+
+#signUp {
+    color: white;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container label {
+    margin-bottom: 8px;
+    margin-left: 5px;
+    text-align: left;
+    font-weight: 600;
+    color: #9089F4;
+    font-size: 16px;
+}
+
+.form-container input {
+    padding: 16px 20px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.form-container input:focus {
+    outline: none;
+    border-color: #9089F4;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(144, 137, 244, 0.2);
+}
+#submitBtn {
+    background: #B9DD6A;
+    color: #222;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(185, 221, 106, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: "Lilita One", sans-serif;
+}
+
+#submitBtn:hover {
+    background: #b7d76a;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(185, 221, 106, 0.4);
+}
+
+#passwordVerification, #name, #passwordVerificationLabel, #nameLabel {
+    display: none;
+}
+
+input::placeholder {
+    font-size: 14px;
+    color: #888;
+}
+
+*:focus-visible {
+    outline: 3px solid #9089F4;
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        width: 80%;
+        padding: 20px;
+    }
+}

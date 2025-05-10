@@ -49,10 +49,6 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.post('/logout', auth, (req, res) => {
-    res.json({ message: 'Déconnexion réussie' });
-});
-
 router.get('/me', auth, async (req, res) => {
     try {
         const db = getDB();

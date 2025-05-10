@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pocket Monster</title>
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<div class="form-container">
+    <div class="toggle">
+        <div class="toggle-btn"></div>
+        <div id="signIn">Login</div>
+        <div id="signUp">Register</div>
+    </div>
+    <form id="authForm" method="post">
+        <label for="name" id="nameLabel" style="display: none;">Username :</label>
+        <input type="text" id="name" name="name" placeholder="Écrivez votre nom" style="display: none;">
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" placeholder="Écrivez votre email" required>
+        <label for="password">Password :</label>
+        <input type="password" id="password" name="password" placeholder="Écrivez votre mot de passe" required>
+        <button type="submit" id="submitBtn">Login</button>
+    </form>
+</div>
+
+<script src="../src/constants/apiRoutes.js"></script>
+<script src="../src/login.js"></script>
+</body>
+</html>
