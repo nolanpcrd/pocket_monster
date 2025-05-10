@@ -8,7 +8,27 @@ const router = express.Router();
 router.get('/', auth, async (req, res) => {
     try {
         const friends = await Friendship.getFriends(req.user.id);
+        friends.forEach(friend => {
+            delete friend.email;
+        });
         res.json(friends);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+router.get('/received', auth, async (req, res) => {
+    try {
+        const db = getDB();
+        const receivedRequests = await db.all(`
+            SELECT f.id, f.user_id1, f.created_at, u.username 
+            FROM friendships f
+            JOIN users u ON f.user_id1 = u.id
+            WHERE f.user_id2 = ? AND f.status_id = 1
+        `, [req.user.id]);
+
+        res.json(receivedRequests);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Server error' });
@@ -95,11 +115,16 @@ router.get('/search', auth, async (req, res) => {
         const searchTerm = `%${query}%`;
 
         const users = await db.all(`
-            SELECT id, username, email 
-            FROM users 
+            SELECT id, username
+            FROM users
             WHERE (username LIKE ?) AND id != ?
+            AND id NOT IN (
+                SELECT user_id2 FROM friendships WHERE user_id1 = ?
+                UNION
+                SELECT user_id1 FROM friendships WHERE user_id2 = ?
+            )
             LIMIT 20
-        `, [searchTerm, req.user.id]);
+        `, [searchTerm, req.user.id, req.user.id, req.user.id]);
 
         res.json(users);
     } catch (error) {
