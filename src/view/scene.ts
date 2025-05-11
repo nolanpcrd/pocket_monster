@@ -1,5 +1,3 @@
-import * as wasi from "node:wasi";
-
 async function loadAndColorSVG(url: string, colorMap: Record<string, string>): Promise<HTMLImageElement> {
     const response = await fetch(url);
     let svgText = await response.text();
