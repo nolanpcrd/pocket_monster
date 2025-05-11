@@ -1,0 +1,115 @@
+#hud {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 280px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1),
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: 'Quicksand', sans-serif;
+    transition: all 0.3s ease;
+}
+
+#hud-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #444;
+    margin: 0 0 5px 0;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.hud-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.hud-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.hud-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    margin-right: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.hud-icon i {
+    font-size: 18px;
+}
+
+.hud-value {
+    display: flex;
+    flex-direction: column;
+}
+
+.hud-label {
+    font-size: 12px;
+    opacity: 0.7;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.hud-value span {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#hud-hunger {
+    background: #FF9966;
+    border: #FF5E62 1px solid;
+}
+
+#hud-hunger .hud-icon i {
+    color: #FF5E62;
+}
+
+#hud-happy {
+    background: #56CCF2;
+    border: #2F80ED 1px solid;
+}
+
+#hud-happy .hud-icon i {
+    color: #2F80ED;
+}
+
+#hud-sick {
+    background: #82D173;
+    border: #56AB91 1px solid;
+}
+
+#hud-sick .hud-icon i {
+    color: #56AB91;
+}
+
+#hud-age {
+    background: #FF9897;
+    border: #F15F79 1px solid;
+}
+
+#hud-age .hud-icon i {
+    color: #F15F79;
+}

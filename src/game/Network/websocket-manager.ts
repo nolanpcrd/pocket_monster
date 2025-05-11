@@ -39,11 +39,9 @@ export class WebSocketManager {
 
     updateUI() {
         if (!this.monster) return;
-        (document.getElementById('hungry') as HTMLElement).innerText = this.monster.hungry.toString();
-        (document.getElementById('happy')  as HTMLElement).innerText = this.monster.happy.toString();
-        (document.getElementById('poos')   as HTMLElement).innerText = this.monster.poos.toString();
-        (document.getElementById('sick')   as HTMLElement).innerText = this.monster.sick.toString();
-        (document.getElementById('age')    as HTMLElement).innerText = this.monster.age.toString();
-        (document.getElementById('alive')  as HTMLElement).innerText = this.monster.alive ? 'Yes' : 'No';
+        (document.getElementById('hungry') as HTMLElement).innerText = this.monster.hungry.toString()+ '%';
+        (document.getElementById('happy')  as HTMLElement).innerText = this.monster.happy.toString() + '%';
+        (document.getElementById('sick')   as HTMLElement).innerText = this.monster.sick.toString() === "1" ? 'Yes' : 'No';
+        (document.getElementById('age')    as HTMLElement).innerText = this.monster.age.toString() + ' years';
     }
 }
