@@ -49,7 +49,7 @@ const hudContent = `
                 <i class="fas fa-birthday-cake"></i>
             </div>
             <div class="hud-value">
-                <div class="hud-label">Âge</div>
+                <div class="hud-label">Age</div>
                 <span id="age">- years</span>
             </div>
         </div>

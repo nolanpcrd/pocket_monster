@@ -1,0 +1,26 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1920" height="1080" fill="white"/>
+<rect width="60" height="1080" fill="black"/>
+<rect x="120" width="60" height="1080" fill="black"/>
+<rect x="240" width="60" height="1080" fill="black"/>
+<rect x="360" width="60" height="1080" fill="black"/>
+<rect x="480" width="60" height="1080" fill="black"/>
+<rect x="600" width="60" height="1080" fill="black"/>
+<rect x="720" width="60" height="1080" fill="black"/>
+<rect x="840" width="60" height="1080" fill="black"/>
+<rect x="960" width="60" height="1080" fill="black"/>
+<rect x="1080" width="60" height="1080" fill="black"/>
+<rect x="1200" width="60" height="1080" fill="black"/>
+<rect x="1320" width="60" height="1080" fill="black"/>
+<rect x="1440" width="60" height="1080" fill="black"/>
+<rect x="1560" width="60" height="1080" fill="black"/>
+<rect x="1680" width="60" height="1080" fill="black"/>
+<rect x="1800" width="60" height="1080" fill="black"/>
+<rect width="1920" height="1080" fill="url(#paint0_linear_7_106)"/>
+<defs>
+<linearGradient id="paint0_linear_7_106" x1="1920" y1="0" x2="437.838" y2="804.193" gradientUnits="userSpaceOnUse">
+<stop stop-opacity="0"/>
+<stop offset="1" stop-opacity="0.5"/>
+</linearGradient>
+</defs>
+</svg>
