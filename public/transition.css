@@ -1,0 +1,54 @@
+.transition-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.loading-text {
+    font-family: Arial, sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.egg-container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 15%;
+    width: 80%;
+}
+
+.egg {
+    width: 24px;
+    height: 24px;
+    background-image: url('transition-egg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 8px;
+    opacity: 0.5;
+}
+
+.transition-container.active {
+    opacity: 1;
+}
+
+.transition-container.fade-out {
+    opacity: 0;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0.5; transform: scale(1); }
+}
