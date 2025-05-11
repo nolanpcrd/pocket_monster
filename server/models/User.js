@@ -1,5 +1,6 @@
 const { getDB } = require('../config/db');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 class User {
     static async create(userData) {
@@ -24,6 +25,22 @@ class User {
             return await db.get('SELECT * FROM users WHERE email = ?', [email]);
         } catch (error) {
             throw error;
+        }
+    }
+
+    static async findByToken(token) {
+        try {
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            const userId = decoded.id;
+
+            const db = getDB();
+            const user = await db.get('SELECT * FROM users WHERE id = ?', [userId]);
+            if (!user) {
+                throw new Error('Utilisateur non trouvé');
+            }
+            return user;
+        } catch (error) {
+            throw new Error('Token invalide ou expiré: ' + error.message);
         }
     }
 
