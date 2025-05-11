@@ -26,7 +26,7 @@ class Monsters {
         }
     }
 
-    async getOrCreateByToken(token, defaultName = 'Tama') {
+    async getOrCreateByToken(token) {
         let userId;
         try {
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -36,24 +36,29 @@ class Monsters {
         }
 
         let monster = this.monsters.get(userId);
+
         if (!monster) {
-            monster = new Monster(null, defaultName, 1, 100, 100, 0, 0, 0, 1, 0, true);
+            monster = new Monster(null, "Monster", 1, 100, 100, 0, 0, 0, 1, 0, true);
             const db = getDB();
             try {
                 db.run(
                     `INSERT INTO monsters
-                     (name, type_id, happy, hungry, sick, age, money, level, user_id, experience, alive)
-                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                 (name, type_id, happy, hungry, sick, age, money, level, user_id, experience, alive)
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
                     [monster.name, monster.typeId, monster.happy,
                         monster.hungry, monster.sick, monster.age,
                         monster.money, monster.level, userId, monster.exp, monster.alive]);
                 const newId = await db.get('SELECT last_insert_rowid() AS id');
-                monster.id = newId;
+                console.log('New monster created with ID:', newId.id);
+                monster.id = newId.id;
             } catch (error) {
                 console.error('Erreur lors de la création du monstre:', error);
                 throw error;
             }
             this.monsters.set(userId, monster);
+            monster.new = true;
+        } else {
+            monster.new = false;
         }
         return monster;
     }

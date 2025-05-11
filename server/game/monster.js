@@ -32,6 +32,11 @@ class Monster {
         }
     }
 
+    changeName(name) {
+        this.name = name;
+        this.triggerUpdate();
+    }
+
     feed() {
         const RESTORE = 20;
         this.hungry = Math.min(100, this.hungry + RESTORE);

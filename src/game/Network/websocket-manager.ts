@@ -1,4 +1,5 @@
 import { Monster, type MonsterData } from '../Models/Monster';
+import {changeName} from "../../view/changeName.ts";
 
 export class WebSocketManager {
     private ws: WebSocket | undefined;
@@ -21,6 +22,9 @@ export class WebSocketManager {
         console.log('WS message', msg);
         switch (msg.type) {
             case 'monster_init':
+                if (msg.data.new){
+                    changeName(this);
+                }
                 this.monster = new Monster(msg.data as MonsterData);
                 this.updateUI();
                 break;
@@ -35,6 +39,10 @@ export class WebSocketManager {
 
     sendAction(action: 'feed' | 'play' | 'heal' | 'clean') {
         this.ws?.send(JSON.stringify({ type: action }));
+    }
+
+    sendName(name: string) {
+        this.ws?.send(JSON.stringify({ type: 'name', name }));
     }
 
     updateUI() {

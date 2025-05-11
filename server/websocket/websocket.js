@@ -33,8 +33,6 @@ wss.on('connection', async (ws, req) => {
         ws.token = token;
 
         const monster = await monstersMgr.getOrCreateByToken(token);
-        active.set(monster.id, { ws, monster });
-
         monster.setUpdateCallback(m => {
             if (ws.readyState === WebSocket.OPEN) {
                 ws.send(JSON.stringify({
@@ -45,7 +43,8 @@ wss.on('connection', async (ws, req) => {
                         poos: m.poos,
                         sick: m.sick,
                         age: m.age,
-                        alive: m.alive
+                        alive: m.alive,
+                        name: m.name,
                     }
                 }));
             }
@@ -59,9 +58,13 @@ wss.on('connection', async (ws, req) => {
                 poos: monster.poos,
                 sick: monster.sick,
                 age: monster.age,
-                alive: monster.alive
+                alive: monster.alive,
+                new: monster.new,
+                name: monster.name,
             }
         }));
+        delete monster.new;
+        active.set(monster.id, { ws, monster });
 
         ws.on('message', (message) => {
             try {
@@ -73,6 +76,7 @@ wss.on('connection', async (ws, req) => {
                     case 'play':    monster.play();      break;
                     case 'heal':    monster.heal();      break;
                     case 'clean':   monster.cleanPoop(); break;
+                    case 'name':    monster.changeName(data.name); break;
                     default: break;
                 }
             } catch (error) {
