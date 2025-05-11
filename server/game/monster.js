@@ -1,7 +1,7 @@
 const { getDB } = require("../config/db");
 
 class Monster {
-    constructor(id, name, typeId, happy, hungry, sick, age, money, level) {
+    constructor(id, name, typeId, happy, hungry, sick, age, money, level, exp, alive = true) {
         this.id = id;
         this.name = name;
         this.typeId = typeId;
@@ -12,9 +12,10 @@ class Monster {
         this.age = age;
         this.money = money;
         this.level = level;
+        this.exp = 0;
         this.poos = 0;
-        this.alive = true;
-        this.loopTimer = 1000 * 60 * 5; // 5 minutes
+        this.alive = alive;
+        this.loopTimer = 1000 * 30; // 30 seconds
 
         this.updateCallback = null;
         this.ageLoop();
@@ -129,10 +130,10 @@ class Monster {
         await db.run(
             `UPDATE monsters
              SET name = ?, type_id = ?, happy = ?, hungry = ?, sick = ?,
-                 age = ?, money = ?, level = ?
+                 age = ?, money = ?, level = ?, experience = ?, alive = ?
              WHERE id = ?`,
             [this.name, this.typeId, this.happy, this.hungry, this.sick,
-                this.age, this.money, this.level,
+                this.age, this.money, this.level, this.exp, this.alive,
                 this.id]
         );
     }

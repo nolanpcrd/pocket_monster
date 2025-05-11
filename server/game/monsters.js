@@ -17,7 +17,7 @@ class Monsters {
                 const monster = new Monster(
                     row.id, row.name, row.type_id,
                     row.happy, row.hungry, row.sick,
-                    row.age, row.money, row.level
+                    row.age, row.money, row.level, row.exp, row.alive
                 );
                 this.monsters.set(row.user_id, monster);
             });
@@ -37,16 +37,16 @@ class Monsters {
 
         let monster = this.monsters.get(userId);
         if (!monster) {
-            monster = new Monster(null, defaultName, 1, 100, 100, 0, 0, 0, 1);
+            monster = new Monster(null, defaultName, 1, 100, 100, 0, 0, 0, 1, 0, true);
             const db = getDB();
             try {
                 db.run(
                     `INSERT INTO monsters
-                     (name, type_id, happy, hungry, sick, age, money, level, user_id)
-                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                     (name, type_id, happy, hungry, sick, age, money, level, user_id, experience, alive)
+                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
                     [monster.name, monster.typeId, monster.happy,
                         monster.hungry, monster.sick, monster.age,
-                        monster.money, monster.level, userId]);
+                        monster.money, monster.level, userId, monster.exp, monster.alive]);
                 const newId = await db.get('SELECT last_insert_rowid() AS id');
                 monster.id = newId;
             } catch (error) {
