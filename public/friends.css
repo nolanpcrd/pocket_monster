@@ -4,11 +4,11 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #9089F4;
-    color: white;
+    background-color: white;
+    color: #9089F4;
     padding: 14px 22px;
     border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(144, 137, 244, 0.3);
+    box-shadow: 0 4px 15px rgba(35, 33, 56, 0.3);
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 999;
@@ -21,7 +21,7 @@
 .friends-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(144, 137, 244, 0.4);
-    background-color: #8078f2;
+    background-color: #dfddf3;
 }
 
 .friends-button i {
@@ -64,6 +64,8 @@
     padding: 16px 20px;
     background-color: #9089F4;
     color: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .friends-panel-title {

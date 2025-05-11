@@ -1,0 +1,106 @@
+/* public/style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+body {
+    background-color: #9089F4;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 100%;
+}
+
+.logo-container img {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 40vh;
+    width: 100%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 400px;
+    height: 15vh;
+    background-color: #B9DD6A;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.button {
+    font-family: "Lilita One", sans-serif;
+    font-size: 2rem;
+    color: #9089f4;
+    background-color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    width: calc(100% - 15px);
+    height: calc(100% - 15px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12.5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+    transform: translateY(-1px) translateX(-1px);
+    box-shadow: 0 6px 20px rgba(144, 137, 244, 0.4);
+    background-color: #ecebf6;
+}
+
+@media (max-width: 768px) {
+    .logo-container {
+        height: 40vh;
+    }
+
+    .buttons-container {
+        height: 50vh;
+    }
+
+    .button {
+        font-size: 1.5rem;
+    }
+
+    .button-container {
+        width: 90%;
+        height: 12vh;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-height: 600px) {
+    .logo-container {
+        height: 30vh;
+    }
+
+    .buttons-container {
+        height: 60vh;
+    }
+
+    .button-container {
+        height: 10vh;
+    }
+}

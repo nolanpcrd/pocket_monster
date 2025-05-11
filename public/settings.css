@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+#settings-container {
+    font-family: "Lilita One", sans-serif;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(35, 33, 56, 0.3);
+    z-index: 1001;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+}
+
+#settings-container h1 {
+    color: #9089F4;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+#settings-container div {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#settings-container label {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+#settings-container input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 60px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    outline: none;
+}
+
+#settings-container input[type="checkbox"]:checked {
+    background-color: #B9DD6A;
+}
+
+#settings-container input[type="checkbox"]:before {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: white;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+#settings-container input[type="checkbox"]:checked:before {
+    transform: translateX(30px);
+}
+
+#settings-container button {
+    background-color: #9089F4;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    font-family: "Lilita One", sans-serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+#settings-container button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(144, 137, 244, 0.4);
+    background-color: #8078f2;
+}
+
+#close-settings {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #9089F4;
+    transition: color 0.3s;
+}
+
+#close-settings:hover {
+    color: #B9DD6A;
+}

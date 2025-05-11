@@ -17,7 +17,7 @@ router.post('/register', async (req, res) => {
 
         const userId = await User.create({ username, email, password });
 
-        const token = jwt.sign({ id: userId }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ id: userId }, process.env.JWT_SECRET, { expiresIn: '1 year' });
 
         res.status(201).json({ token });
     } catch (error) {
@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
             return res.status(400).json({ message: 'Email ou mot de passe incorrect' });
         }
 
-        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1 year' });
 
         res.json({ token });
     } catch (error) {
